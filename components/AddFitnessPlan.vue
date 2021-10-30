@@ -10,13 +10,14 @@
         bottom-0
         w-full
         h-full
-        bg-gray-800 bg-opacity-25
+        bg-gray-800 
+        bg-opacity-25
       "
     >
       <div class="bg-white rounded-lg w-1/2">
         <div class="flex flex-col items-start p-4">
           <div class="flex items-center w-full">
-            <div class="text-gray-900 font-medium text-lg">
+            <div class="text-gray-900 font-lg font-bold">
               운동 계획 등록하기
             </div>
             <svg
@@ -31,9 +32,25 @@
             </svg>
           </div>
           <div class="h-auto">
+            <div class="text-black my-3">
+              날짜
+            </div>
+            <range-date-picker></range-date-picker>
+            <div class="text-black my-3">
+              시간
+            </div>
+            <div class="text-black my-3">
+              운동 종목
+            </div>
+            <div class="text-black my-3">
+              세트 수
+            </div>
+            <div class="text-black my-3">
+              세트 별 쉬는 시간
+            </div>
           </div>
           <div class="ml-auto">
-            <Button title="등록"></Button>
+            <Button title="등록" @onClickButton="onAddFitnessPlan"></Button>
             <Button
               title="취소"
               @onClickButton="onCloseAddFitnessPopup"
@@ -45,18 +62,16 @@
   </transition>
 </template>
 <script>
+import RangeDatePicker from './RangeDatePicker.vue';
 export default {
-  setup() {
-    const dateValue = ref([]);
-
-    return {
-      dateValue,
-    };
-  },
+  components: { RangeDatePicker },
   methods: {
     onCloseAddFitnessPopup() {
       this.$emit("onCloseAddFitnessPopup");
     },
+    onAddFitnessPlan () {
+      this.$emit("onAddFitnessPlan");
+    }
   },
 };
 </script>

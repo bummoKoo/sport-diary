@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-100">
-    <AddFitnessPlan v-if="showFitnessPlan" @onCloseAddFitnessPopup="onCloseAddFitnessPopup"></AddFitnessPlan>
+    <AddFitnessPlan v-if="showFitnessPlan" @onCloseAddFitnessPopup="onCloseAddFitnessPopup" @onAddFitnessPlan="onAddFitnessPlan"></AddFitnessPlan>
     <div>
       <div class="mx-auto h-auto p-4 pb-0 flex items-end justify-end">
         <Button
@@ -272,6 +272,9 @@ export default {
     onCloseAddFitnessPopup () {
       this.showFitnessPlan = false;
     },
+    onAddFitnessPlan () {
+      alert("운동 계획이 등록되었습니다.");
+    }
   },
   created() {
     this.MONTH_NAMES = [
