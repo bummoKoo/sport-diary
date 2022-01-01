@@ -14,7 +14,7 @@
       border-opacity-80
     "
   >
-    <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+    <nav type="light" class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
       <NuxtLink
         to="/fitness"
         class="

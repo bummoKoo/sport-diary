@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-100">
-    <AddFitnessPlan v-if="showFitnessPlan" @onCloseAddFitnessPopup="onCloseAddFitnessPopup" @onAddFitnessPlan="onAddFitnessPlan"></AddFitnessPlan>
+    <new-fitness-plan-add id="new-fitness-plan-add"></new-fitness-plan-add>
     <div>
       <div class="mx-auto h-auto p-4 pb-0 flex items-end justify-end">
         <Button
@@ -221,7 +221,6 @@ export default {
         },
       ],
       openEventModal: false,
-      showFitnessPlan: false
     };
   },
   methods: {
@@ -267,14 +266,11 @@ export default {
       alert("오늘 운동 시작하기");
     },
     onClickNewPlanning() {
-      this.showFitnessPlan = true;
+      this.$bvModal.show("new-fitness-plan-add");
     },
-    onCloseAddFitnessPopup () {
-      this.showFitnessPlan = false;
-    },
-    onAddFitnessPlan () {
+    onAddFitnessPlan() {
       alert("운동 계획이 등록되었습니다.");
-    }
+    },
   },
   created() {
     this.MONTH_NAMES = [
@@ -306,8 +302,3 @@ export default {
   },
 };
 </script>
-<style>
-[x-cloak] {
-  display: none;
-}
-</style>
